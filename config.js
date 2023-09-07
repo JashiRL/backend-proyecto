@@ -9,7 +9,7 @@ const firebaseConfig = {
   storageBucket: "proyecto-backfront-e8e6c.appspot.com",
   messagingSenderId: "444175226881",
   appId: "1:444175226881:web:2862b2a9a6ce56c5a28800"
-};
+}
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig)

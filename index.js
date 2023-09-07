@@ -4,13 +4,13 @@ import { initializeApp } from "firebase/app"
 import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore"
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBzwKUAmRfQnHN3zMvEd1PpgqN0GqaExlI",
-    authDomain: "proyecto-backfront.firebaseapp.com",
-    projectId: "proyecto-backfront",
-    storageBucket: "proyecto-backfront.appspot.com",
-    messagingSenderId: "480219900439",
-    appId: "1:480219900439:web:2ec2a3c07c7fd13872ca52"
-  };
+    apiKey: "AIzaSyCevU23_-oNunDP1Nk5DpLc9yHJUklgxGs",
+    authDomain: "proyecto-backfront-e8e6c.firebaseapp.com",
+    projectId: "proyecto-backfront-e8e6c",
+    storageBucket: "proyecto-backfront-e8e6c.appspot.com",
+    messagingSenderId: "444175226881",
+    appId: "1:444175226881:web:2862b2a9a6ce56c5a28800"
+  }
 
 const firebase = initializeApp(firebaseConfig)
 const db = getFirestore(firebase)
