@@ -65,7 +65,10 @@ app.post('/create', async (req,res) => {
         })
     }
 })
+//ruta para borrar con el boton delete
+app.get('/delete/:id', async (req, res) => {
 
+})
 // Prendemos el servidor
 app.listen(9000, () => {
     console.log('Servidor Trabajando')
