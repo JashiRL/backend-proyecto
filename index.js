@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import { initializeApp } from "firebase/app"
-import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore"
+import { getFirestore, collection, getDocs, addDoc, deleteDoc, doc } from "firebase/firestore"
 
 const firebaseConfig = {
     apiKey: "AIzaSyCevU23_-oNunDP1Nk5DpLc9yHJUklgxGs",
@@ -65,10 +65,43 @@ app.post('/create', async (req,res) => {
         })
     }
 })
+
 //ruta para borrar con el boton delete
 app.get('/delete/:id', async (req, res) => {
-
+   // console.log('@@@ param =>', req.params.id)
+    const id = req.params.id
+    try{
+        await deleteDoc (doc(db, 'Users', id))
+        res.send({
+            'msg': 'user deleted'
+        })
+    } catch(error)  {
+        res.send({
+            'msg': 'error',
+            'data': 'error'
+        })
+    } 
+    
 })
+
+app.get('/get-update/:id', async (req, res) => {
+    const id = req.params.id
+
+    const userRef = doc(db, 'Users', id)
+    const user = await getDoc(userRef)
+
+    if (user.exists()) {
+        res.send({
+            'msg': 'success',
+            'data': user.data()
+        })
+    } else{
+        res.send({
+            'msg': 'User doesnt exists'
+        })
+    }
+})
+
 // Prendemos el servidor
 app.listen(9000, () => {
     console.log('Servidor Trabajando')
